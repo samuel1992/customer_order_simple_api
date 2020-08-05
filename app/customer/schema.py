@@ -7,8 +7,7 @@ class CustomerSchema(Schema):
     email = fields.Str(required=True)
 
     class Meta:
-        fields = ('name', 'last_name', 'email')
+        fields = ('id', 'name', 'last_name', 'email')
 
 
 customer_schema = CustomerSchema()
-customers_schema = CustomerSchema(many=True)

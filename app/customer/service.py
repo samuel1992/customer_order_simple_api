@@ -20,3 +20,23 @@ class CustomerService:
     @staticmethod
     def get_by_id(customer_id):
         return Customer.query.get(customer_id)
+
+    @staticmethod
+    def update(customer_id, customer_data):
+        customer = Customer.query.get(customer_id)
+        customer.query.update(customer_data)
+
+        db.session.commit()
+
+        return customer
+
+    @staticmethod
+    def delete_by_id(customer_id):
+        customer = Customer.query.get(customer_id)
+        if not customer:
+            return []
+
+        db.session.delete(customer)
+        db.session.commit()
+
+        return [customer_id]

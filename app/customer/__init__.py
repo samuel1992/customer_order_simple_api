@@ -1,3 +1,3 @@
 from .model import Customer
 from .service import CustomerService
-from .schema import customer_schema, customers_schema
+from .schema import customer_schema

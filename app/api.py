@@ -18,15 +18,11 @@ def customers():
         if errors:
             return response({'errors': errors}, 400)
 
-        return response(
-            customer_schema.dump(CustomerService.create(customer_data)),
-            201
-        )
+        customer = CustomerService.create(customer_schema.load(customer_data))
+        return response(customer_schema.dump(customer), 201)
 
-    return response(
-        customer_schema.dump(CustomerService.get_all(), many=True),
-        200
-    )
+    customers = customer_schema.dump(CustomerService.get_all(), many=True)
+    return response(customers, 200)
 
 
 @app.route('/clientes/<int:customer_id>', methods=['GET', 'PUT', 'DELETE'])
@@ -37,19 +33,14 @@ def customer(customer_id):
         if errors:
             return response({'errors': errors}, 400)
 
-        return response(
-            customer_schema.dump(CustomerService.update(customer_id,
-                                                        customer_data)),
-            200
-        )
+        customer = CustomerService.create(customer_schema.load(customer_data))
+        return response(customer_schema.dump(customer), 200)
 
     if request.method == 'DELETE':
-        if CustomerService.delete_by_id(customer_id):
+        if CustomerService.delete(customer_id):
             return response({}, 204)
         else:
             return response({}, 404)
 
-    return response(
-        customer_schema.dump(CustomerService.get_by_id(customer_id)),
-        200
-    )
+    customer = CustomerService.get_by_id(customer_id)
+    return response(customer_schema.dump(customer), 200)

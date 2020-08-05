@@ -2,12 +2,12 @@ from marshmallow import fields, Schema
 
 
 class CustomerSchema(Schema):
-    name = fields.Str(required=True)
-    last_name = fields.Str(required=True)
+    nome = fields.Str(attribute='name', required=True)
+    ultimo_nome = fields.Str(attribute='last_name', required=True)
     email = fields.Str(required=True)
 
     class Meta:
-        fields = ('id', 'name', 'last_name', 'email')
+        fields = ('id', 'nome', 'ultimo_nome', 'email')
 
 
 customer_schema = CustomerSchema()

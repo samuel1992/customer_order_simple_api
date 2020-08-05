@@ -31,7 +31,7 @@ class CustomerService:
         return customer
 
     @staticmethod
-    def delete_by_id(customer_id):
+    def delete(customer_id):
         customer = Customer.query.get(customer_id)
         if not customer:
             return []

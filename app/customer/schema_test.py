@@ -18,8 +18,8 @@ def test_schema_serialization(schema):
     last_name = 'nietzsche'
     email = 'test@test.com'
     customer_data = schema.load({
-        'name': name,
-        'last_name': last_name,
+        'nome': name,
+        'ultimo_nome': last_name,
         'email': email
     })
 

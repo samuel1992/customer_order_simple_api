@@ -1,3 +1,6 @@
+import os
+
+
 class Config():
     DEBUG = False
     DATABASE_NAME = 'postgres'
@@ -15,3 +18,10 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
+
+
+class TestingConfig(Config):
+    DEBUG = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = "sqlite:///{0}/app-test.db".format(os.path.abspath(os.path.dirname(__file__)))

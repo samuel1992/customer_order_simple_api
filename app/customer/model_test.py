@@ -1,13 +1,12 @@
-from pytest import fixture
+from app.test.fixtures import app, db
 
 from .model import Customer
 
 
-@fixture
-def customer():
-    return Customer(name='arthur', last_name='schopenhauer',
-                    email='test@test.com')
+def test_customer_create(db):
+    customer = Customer(name='arthur', last_name='schopenhauer',
+                        email='test@test.com')
+    db.session.add(customer)
+    db.session.commit()
 
-
-def test_customer_create(customer):
-    assert customer
+    assert Customer.query.first()

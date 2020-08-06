@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 ADD . /app/
 
 CMD python create_db.py
-CMD tail -f /dev/null
+CMD python run.py

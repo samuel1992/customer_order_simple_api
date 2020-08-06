@@ -1,0 +1,11 @@
+from app.test.fixtures import client, app, db
+
+from .service import CustomerService
+
+
+def test_get_customers(client, db):
+    customer = CustomerService.create(CUSTOMER_DATA)
+ 
+    response = client.get('/clientes')
+
+    import pdb;pdb.set_trace()

@@ -1,3 +1,3 @@
 from .model import Order
-from .schema import order_schema
+from .schema import order_schema, OrderSchema
 from .service import OrderService

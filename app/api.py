@@ -2,6 +2,7 @@ from flask import request, jsonify
 
 from app import create_app
 from app.customer import CustomerService, customer_schema
+from app.order import OrderService, order_schema
 
 app = create_app()
 
@@ -21,8 +22,8 @@ def customers():
         customer = CustomerService.create(customer_schema.load(customer_data))
         return response(customer_schema.dump(customer), 201)
 
-    customers = customer_schema.dump(CustomerService.get_all(), many=True)
-    return response(customers, 200)
+    customers = CustomerService.get_all()
+    return response(customer_schema.dump(customers, many=True), 200)
 
 
 @app.route('/clientes/<int:customer_id>', methods=['GET', 'PUT', 'DELETE'])
@@ -33,7 +34,8 @@ def customer(customer_id):
         if errors:
             return response({'errors': errors}, 400)
 
-        customer = CustomerService.create(customer_schema.load(customer_data))
+        customer = CustomerService.update(customer_id,
+                                          customer_schema.load(customer_data))
         return response(customer_schema.dump(customer), 200)
 
     if request.method == 'DELETE':
@@ -44,3 +46,39 @@ def customer(customer_id):
 
     customer = CustomerService.get_by_id(customer_id)
     return response(customer_schema.dump(customer), 200)
+
+
+@app.route('/pedidos', methods=['GET', 'POST'])
+def orders():
+    if request.method == 'POST':
+        order_data = request.get_json()
+        errors = order_schema.validate(order_data)
+        if errors:
+            return response({'errors': errors}, 400)
+
+        order = OrderService.create(order_schema.load(order_data))
+        return response(order_schema.dump(order), 201)
+
+    orders = OrderService.get_all()
+    return response(order_schema.dump(orders, many=True), 200)
+
+
+@app.route('/pedidos/<int:order_id>', methods=['GET', 'PUT', 'DELETE'])
+def order(order_id):
+    if request.method == 'PUT':
+        order_data = request.get_json()
+        errors = order_schema.validate(order_data)
+        if errors:
+            return response({'errors': errors}, 400)
+
+        order = OrderService.update(order_id, order_schema.load(order_data))
+        return response(order_schema.dump(order), 200)
+
+    if request.method == 'DELETE':
+        if OrderService.delete(order_id):
+            return response({}, 204)
+        else:
+            return response({}, 404)
+
+    order = OrderService.get_by_id(order_id)
+    return response(order_schema.dump(order), 200)

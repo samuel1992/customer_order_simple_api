@@ -12,7 +12,7 @@ CUSTOMER_DATA = {
 }
 
 
-def test_create_and_get_all(db):
+def test_create(db):
     customer = CustomerService.create(CUSTOMER_DATA)
 
     for key in CUSTOMER_DATA.keys():

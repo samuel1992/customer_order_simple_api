@@ -8,9 +8,9 @@ from app.customer import Customer
 
 
 class OrderStatusEnum(enum.Enum):
-    feito = 'feito'
+    novo = 'novo'
+    entregue = 'entregue'
     pendente = 'pendente'
-    concluido = 'concluido'
 
 
 class Order(db.Model):

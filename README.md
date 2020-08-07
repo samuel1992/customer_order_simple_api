@@ -18,7 +18,7 @@ ps: I tested it with python 3.6 and 3.7 and worked fine
 - `docker-compose up`
 
 # Running tests on docker
-- `docker-compode run web ./test_and_coverage.sh`
+- `docker-compose run web ./test_and_coverage.sh`
  A faster way is to execute the running container. Ex: `docker exec -it menu_chlg_web_1 ./test_and_coverage.sh`
  Use the command `docker ps` to find your container name.
 

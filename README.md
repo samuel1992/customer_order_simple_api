@@ -39,9 +39,8 @@ That said, I will try to talk more about the motivation for each technology used
   Since I create the application in this approach of modules by each entity, blueprint is a great tool to organize the routes and register it in the same application
   context.
 - `Pytest`
-  I could test all of it with the `unittest` of python native library but we have some problems to centralize the tests in this way. I like to test the modules files
-  into the module folder, so to do it with the pytest is really easy once that pytest search for `*_test.py` files and execute it. Also the `pytest.fixture` is quite
-  simple to work with and a really good tool for avoid a hell of mocks XD.
+  I could test all of it with the `unittest` of python native library but we have some problems to centralize the tests running. I like to write the test the
+  in the module folder with the tested file so with pytest is really easy to do it, once that pytest search for `*_test.py` files and execute it. Also the `pytest.fixture` is quite  simple to work with and a really good tool for avoid a hell of mocks XD.
 - `SQLAlchemy`
   When you have to work with some database and flask, in my opinion, sqlalchemy is the best ORM. It is easy to use because it abstract the sql language for python code
   (in most commom cases), a very mature tool even to compare with the Django ORM.

@@ -57,6 +57,6 @@ Some cons about the approach I chose:
 - A more complex organization. For a simple API it has a lot of folders structure and depends on register blueprint modules, it give us more complexity but I
   think that is an adversity we can live with due the benefits that I said before.
 
-What I could improve?
+What could improve?
 - Error handling. I'm just counting on marshmallow and database rules for the error handling.
 - Think a more sufisticate way to reuse the code without coupling the modules.

@@ -21,5 +21,5 @@ A simple api for customers and orders.
  Use the command `docker ps` to find your container name.
 
 # Running test locally
-- `./test_and_coverage`
+- `./test_and_coverage.sh`
 

@@ -22,7 +22,7 @@ ps: I tested it with python 3.6 and 3.7 and worked fine
  A faster way is to execute the running container. Ex: `docker exec -it menu_chlg_web_1 ./test_and_coverage.sh`
  Use the command `docker ps` to find your container name.
 
-# Running test locally
+# Running tests locally
 - `./test_and_coverage.sh`
 
 # Additonals

@@ -13,7 +13,7 @@ def customer():
 
 
 def test_order_create(db, customer):
-    order = Order(status='concluido', price=20.0, customer_id=customer.id)
+    order = Order(status='entregue', price=20.0, customer_id=customer.id)
     db.session.add(order)
     db.session.commit()
 

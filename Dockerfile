@@ -10,5 +10,6 @@ RUN pip install -r requirements.txt
 
 ADD . /app/
 
-CMD python create_db.py
+ENTRYPOINT ["/app/entrypoint.sh"]
+
 CMD python run.py

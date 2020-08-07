@@ -21,7 +21,7 @@ def test_schema_create():
 
 
 def test_schema_serialization(order_schema, customer_schema):
-    status = OrderStatusEnum.feito
+    status = OrderStatusEnum.novo
     price = 20.0
     customer_data = {'nome': 'test', 'ultimo_nome': 'test',
                      'email': 'test@teste.com'}

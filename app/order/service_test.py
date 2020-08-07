@@ -6,7 +6,7 @@ from .model import Order, OrderStatusEnum
 from .service import OrderService
 
 ORDER_DATA = {
-    'status': OrderStatusEnum.concluido,
+    'status': OrderStatusEnum.entregue,
     'price': 20.0,
     'customer_id': 1
 }
@@ -34,7 +34,7 @@ def test_get_by_id(db):
 
 def test_update(db):
     order = OrderService.create(ORDER_DATA)
-    new_status = OrderStatusEnum.feito
+    new_status = OrderStatusEnum.novo
     updated_order = OrderService.update(order.id, {'status': new_status})
 
     assert order.status == new_status

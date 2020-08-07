@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
-ADD . /app/
+COPY . /app/
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 

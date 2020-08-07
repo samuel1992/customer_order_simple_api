@@ -9,8 +9,14 @@ def app():
 
 
 @pytest.fixture
+def client(app):
+    return app.test_client()
+
+
+@pytest.fixture
 def db(app):
-    from app import db
+    from app.extensions import db
+
     with app.app_context():
         db.create_all()
         yield db

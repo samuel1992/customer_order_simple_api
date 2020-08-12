@@ -51,7 +51,7 @@ That said, I will try to talk more about the motivation for each technology used
   case of unexpected fields.
 
 Some cons about the approach I chose:
-- Repeated code. In `order` and `customer` we have a lot of duplicated logic. I could reuse some of it from a superior module but I chose not for the main reason as I
+- Repeated code. In `order` and `customer` we have a lot of duplicated logic. I could reuse some of it from a superior module but I chose not. For the main reason as I
   said at the beginning.
 - A more complex organization. For a simple API it has a lot of folders structure and depends on register blueprint modules, it give us more complexity but I
   think that is an adversity we can live with due the benefits that I said before.

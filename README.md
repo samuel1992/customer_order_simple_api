@@ -26,7 +26,7 @@ ps: I tested it with python 3.6 and 3.7 and worked fine
 - `./test_and_coverage.sh`
 
 # Additonals
-The project was builded basic using two modules `customer` and `order`. Each module has its own mvc structure.
+The project was made basic using two modules `customer` and `order`. Each module has its own mvc structure.
 Why I did this way and not a simple mvc project that could include both entities? Ok, in this case I chose like this because we talked about microservices etc,
 this kind of "design" could give us a little more flexibility if we choose to separate one of the entities into a different service or even a different project.
 Of course in this project the domain was very simple (a little crud of two things) but I tried to demonstrate an idea here.
